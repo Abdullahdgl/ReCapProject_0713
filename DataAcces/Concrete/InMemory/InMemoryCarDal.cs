@@ -8,9 +8,9 @@ using System.Linq.Expressions;
 
 namespace DataAcces.Concrete.InMemory
 {
-	public class InMemoryCarDal /*: ICarDal*/
+	public class InMemoryCarDal : ICarDal
 	{
-		/*List<Car> _cars;
+		List<Car> _cars;
 		public InMemoryCarDal() // constrator yapıtığımız alandır.
 		{
 			_cars = new List<Car>
@@ -63,6 +63,6 @@ namespace DataAcces.Concrete.InMemory
 			carToUpdate.Description = car.Description;
 
 		}
-		*/
+		
 	}
 }
