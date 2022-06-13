@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DataAcces.Concrete.InMemory
 {
-	public class InMemoryCarDal : ICarDal
+	public class InMemoryCarDal /*: ICarDal*/
 	{
-		List<Car> _cars;
+		/*List<Car> _cars;
 		public InMemoryCarDal() // constrator yapıtığımız alandır.
 		{
 			_cars = new List<Car>
@@ -33,9 +34,19 @@ namespace DataAcces.Concrete.InMemory
 			_cars.Remove(CarToDelete);
 		}
 
+		public Car Get(Expression<Func<Car, bool>> filter)
+		{
+			throw new NotImplementedException();
+		}
+
 		public List<Car> GetAll()
 		{
 			return _cars;
+		}
+
+		public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+		{
+			throw new NotImplementedException();
 		}
 
 		public List<Car> GetById(int id)
@@ -52,5 +63,6 @@ namespace DataAcces.Concrete.InMemory
 			carToUpdate.Description = car.Description;
 
 		}
+		*/
 	}
 }

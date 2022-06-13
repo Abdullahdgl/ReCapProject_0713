@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Entities.Abstract
 {
-	public interface ICar
+	public interface IEntity
 	{
-
 	}
 }
