@@ -4,6 +4,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bussiness.Concrete
 {
@@ -41,7 +42,7 @@ namespace Bussiness.Concrete
 
 		public Car GetById(int id)
 		{
-			return _carDal.Get(c => c.Id == id);
+			return _carDal.Get(c => c.CarId == id);
 		}
 
 		public List<Car> GetCarsByBrandId(int id)
