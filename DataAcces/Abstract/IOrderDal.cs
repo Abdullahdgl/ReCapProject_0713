@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAcces.Abstract
 {
-	public interface IColorDal: IEntityRepository<Color>
+	public interface IOrderDal : IEntityRepository<Order>
 	{
 	}
 }

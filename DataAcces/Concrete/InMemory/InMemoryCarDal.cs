@@ -6,6 +6,7 @@ using System.Text;
 using System.Linq;
 using System.Linq.Expressions;
 using DataAcces.Concrete.EntityFramework;
+using Entities.DTOs;
 
 namespace DataAcces.Concrete.InMemory
 {
@@ -60,6 +61,11 @@ namespace DataAcces.Concrete.InMemory
 		}
 
 		public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+		{
+			throw new NotImplementedException();
+		}
+
+		public List<CarDetailDto> GetCarDetails()
 		{
 			throw new NotImplementedException();
 		}
