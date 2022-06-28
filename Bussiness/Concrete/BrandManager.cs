@@ -1,4 +1,6 @@
 ﻿using Bussiness.Abstract;
+using Bussiness.Constants;
+using Core.Utilities.Results;
 using DataAcces.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,40 +18,44 @@ namespace Bussiness.Concrete
 			_brandDal = brandDal;
 		}
 
-		public void add(Brand brand)
+		public IResult add(Brand brand)
 		{
 			_brandDal.Add(brand);
-			Console.WriteLine("Marka Eklendi.");
+			return new SuccessResult(Messages.BrandAdded);
 		}
 
-		public void delete(Brand brand)
+		public IResult delete(Brand brand)
 		{
 			_brandDal.Delete(brand);
-			Console.WriteLine("Marka Silindi.");
+			return new SuccessResult(Messages.BrandDeleted);
 		}
 
-		public List<Brand> GetAll()
+		public IDataResult<List<Brand>> GetAll()
 		{
-			return _brandDal.GetAll();
+			return new SuccesDataResult<List<Brand>>  (_brandDal.GetAll());
 		}
 
-		public Brand GetById(int id)
+		public IDataResult<Brand> GetById(int id)
 		{
-			return _brandDal.Get(c => c.BrandId == id);
+			return new SuccesDataResult<Brand> (_brandDal.Get(c => c.BrandId == id));
 		}
 
-		public void update(Brand brand)
+		public IResult update(Brand brand)
 		{
-			if (brand.BrandName.Length>=2)
+			try
 			{
 				_brandDal.Update(brand);
-				Console.WriteLine("Marka Güncellendi.");
+				return new SuccessResult(Messages.BrandUpdated);
 			}
-			else
+			catch (Exception)
 			{
-				Console.WriteLine($"Lütfen marka isminin uzunluğunu 1 karakterden fazla giriniz. Girdiğiniz marka ismi : {brand.BrandName}");
+				return new ErrorResult(Messages.BrandError);
 			}
 			
+				 
+
+
+
 		}
 	}
 }

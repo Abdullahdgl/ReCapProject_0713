@@ -18,7 +18,10 @@ namespace ConsoleUI
 		{
 			Console.WriteLine("*********** Brand Manager = BrandDatabase ***************");
 			BrandManager brandManager = new BrandManager(new EfBrandDal());
-			foreach (var brand in brandManager.GetAll())
+
+			var Result = brandManager.GetAll();
+
+			foreach (var brand in Result.Data )
 			{
 				Console.WriteLine(brand.BrandId + " " + brand.BrandName);
 			}
@@ -28,7 +31,9 @@ namespace ConsoleUI
 		{
 			Console.WriteLine("*********** Color Manager = ColorDatabase ***************");
 			ColorManager colorManager = new ColorManager(new EfColorDal());
-			foreach (var color in colorManager.GetAll())
+			var Result = colorManager.GetAll();
+
+			foreach (var color in Result.Data)
 			{
 				Console.WriteLine(color.ColorId + " " + color.ColorName);
 			}
@@ -38,7 +43,9 @@ namespace ConsoleUI
 		{
 			CarManager carManager = new CarManager(new EfCarDal());
 			Console.WriteLine("****************Car Manager = CarDatabase****************");
-			foreach (var car in carManager.GetCarDetails())
+
+			var Result = carManager.GetCarDetails();
+			foreach (var car in Result.Data )
 			{
 
 				Console.WriteLine( car.DailyPrice + "    /   "+ car.ColorName);
