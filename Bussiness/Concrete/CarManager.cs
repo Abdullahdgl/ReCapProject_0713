@@ -22,7 +22,7 @@ namespace Bussiness.Concrete
 		}
 		public IResult Add(Car car)
 		{
-			if ((car.Description.Length<=2) && (car.DailyPrice>0))
+			if ((car.Description.Length>=2) && (car.DailyPrice>0))
 			{
 				_carDal.Add(car);
 				return new SuccessResult(Messages.CarAdded);

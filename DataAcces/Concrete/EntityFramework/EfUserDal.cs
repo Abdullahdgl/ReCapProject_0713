@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAcces.Concrete.EntityFramework
 {
-	public class EfOrderDal : EfEntityRepositoryBase<Order, ReCapProjectContext>, IOrderDal
+	public class EfUserDal:EfEntityRepositoryBase<User, ReCapProjectContext>, IUserDal
 	{
 	}
 }

@@ -18,13 +18,6 @@ namespace Bussiness.Constants
         public static string CustomerUpdated = "Müşteri güncellendi.";
         public static string CustomerListed = "Müşteriler listelendi.";
 
-        //Kiralama işlem mesajları
-        public static string RentalAdded = "Araç kiralama başarılı.";
-        public static string RentalDeleted = "Kiralama bilgileri silindi.";
-        public static string RentalUpdated = "Kiralama işlemi güncellendi.";
-        public static string RentalValueInvalid = "Araç şuan başka bir kullanıcıya tanımlı kirala işlemi başarısız.";
-        public static string RentalListed = "Kiralama işlemleri listelendi";
-
         //Araçlar için hazır mesajlar
         public static string CarAdded = "Araç eklendi.";
         public static string CarDeleted = "Araç silindi.";
@@ -43,6 +36,15 @@ namespace Bussiness.Constants
         public static string BrandListed = "Markalar listelendi.";
         public static string MaintenanceTime = "Sunucu bakımda";
         public static string BrandError = "Markada bir hata var";
+
+        //Kiralama işlem mesajları
+        public static string RentalAdded = "Araç kiralama başarılı.";
+        public static string RentalDeleted = "Kiralama bilgileri silindi.";
+        public static string RentalUpdated = "Kiralama işlemi güncellendi.";
+        public static string RentalValueInvalid = "Araç şuan başka bir kullanıcıya tanımlı kirala işlemi başarısız.";
+        public static string RentalListed = "Kiralama işlemleri listelendi";
+
+
 
     }
 }

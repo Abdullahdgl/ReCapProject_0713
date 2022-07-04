@@ -32,7 +32,9 @@ namespace Bussiness.Concrete
 
 		public IDataResult<List<Brand>> GetAll()
 		{
-			return new SuccesDataResult<List<Brand>>  (_brandDal.GetAll());
+		
+			return new SuccesDataResult<List<Brand>>(_brandDal.GetAll());
+
 		}
 
 		public IDataResult<Brand> GetById(int id)
