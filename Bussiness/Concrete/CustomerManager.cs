@@ -34,7 +34,7 @@ namespace Bussiness.Concrete
 
 		public IDataResult<List<Customer>> GetAll()
 		{
-			if (DateTime.Now.Hour == 22)
+			if (DateTime.Now.Hour == 13)
 			{
 				return new SuccesDataResult<List<Customer>>(_customerDal.GetAll(), Messages.UserListed);
 			}
