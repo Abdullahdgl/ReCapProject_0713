@@ -1,5 +1,7 @@
 ﻿using Bussiness.Abstract;
 using Bussiness.Constants;
+using Bussiness.ValidationRules_DogrrulamaKurallari.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAcces.Abstract;
 using Entities.Concrete;
@@ -18,13 +20,12 @@ namespace Bussiness.Concrete
 			_userDal = userDal;
 		}
 
+		[ValidationAspect(typeof(UserValidator))]
 		public IResult Add(User user)
 		{
 			{
 				_userDal.Add(user);
 				return new SuccessResult(Messages.UserAdded);
-
-
 
 			}
 		}

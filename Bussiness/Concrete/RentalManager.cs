@@ -1,5 +1,7 @@
 ﻿using Bussiness.Abstract;
 using Bussiness.Constants;
+using Bussiness.ValidationRules_DogrrulamaKurallari.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAcces.Abstract;
 using Entities.Concrete;
@@ -19,6 +21,7 @@ namespace Bussiness.Concrete
 		{
 			_rentalDal = rentalDal;
 		}
+		[ValidationAspect(typeof(RentalValidator))]
 		public IResult Add(Rental rental)
 		{
 			_rentalDal.Add(rental);

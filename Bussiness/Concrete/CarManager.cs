@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Entities.DTOs;
 using Core.Utilities.Results;
 using Bussiness.Constants;
+using Core.Aspects.Autofac.Validation;
+using Bussiness.ValidationRules_DogrrulamaKurallari.FluentValidation;
 
 namespace Bussiness.Concrete
 {
@@ -20,17 +22,14 @@ namespace Bussiness.Concrete
 		{
 			_carDal = carDal;
 		}
+
+		[ValidationAspect(typeof(CarValidator))]
 		public IResult Add(Car car)
 		{
-			if ((car.Description.Length>=2) && (car.DailyPrice>0))
-			{
+			
 				_carDal.Add(car);
 				return new SuccessResult(Messages.CarAdded);
-			}
-			else
-			{
-				return new ErrorResult(Messages.CarValueInvalid);
-			}
+		
 		}
 
 		public IResult Delete(Car car)

@@ -1,5 +1,7 @@
 ﻿using Bussiness.Abstract;
 using Bussiness.Constants;
+using Bussiness.ValidationRules_DogrrulamaKurallari.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAcces.Abstract;
 using Entities.Concrete;
@@ -17,7 +19,7 @@ namespace Bussiness.Concrete
 		{
 			_brandDal = brandDal;
 		}
-
+		[ValidationAspect(typeof(BrandValidator))]
 		public IResult add(Brand brand)
 		{
 			_brandDal.Add(brand);
