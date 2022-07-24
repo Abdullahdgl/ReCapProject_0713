@@ -10,6 +10,7 @@ using Core.Utilities.Results;
 using Bussiness.Constants;
 using Core.Aspects.Autofac.Validation;
 using Bussiness.ValidationRules_DogrrulamaKurallari.FluentValidation;
+using Core.Utilities.Business;
 
 namespace Bussiness.Concrete
 {
@@ -34,6 +35,12 @@ namespace Bussiness.Concrete
 
 		public IResult Delete(Car car)
 		{
+			var result = BusinessRules.Run(CheckIfCarExists(car.CarId));
+			if (result != null)
+			{
+				return result;
+			}
+
 			_carDal.Delete(car);
 			return new SuccessResult(Messages.CarDeleted);
 		}
@@ -72,8 +79,23 @@ namespace Bussiness.Concrete
 
 		public IResult Update(Car car)
 		{
+			var result = BusinessRules.Run(CheckIfCarExists(car.CarId));
+			if (result!=null)
+			{
+				return result;
+			}
+
+
 			_carDal.Update(car);
 			return new SuccessResult(Messages.CarUpdated);
+		}
+		private IResult CheckIfCarExists(int carId)
+		{
+			if (!(_carDal.GetAll(c=>c.CarId==carId).Count>0))
+			{
+				return new ErrorResult("Car Not Exits");
+			}
+			return new SuccessResult();
 		}
 	}
 }
